@@ -1,5 +1,9 @@
 <?php
 
+namespace model\database;
+
+use PDO;
+use PDOException;
 
 class DBConnect
 {
@@ -10,20 +14,18 @@ class DBConnect
     public function __construct()
     {
         $this->dsn = "mysql:host=localhost;dbname=staff_manager";
-        $this->username = 'root';
-        $this->password = '123456@Abc';
+        $this->username = "root";
+        $this->password = "123456@Abc";
     }
 
     public function connect()
     {
         $conn = null;
-
         try {
             $conn = new PDO($this->dsn, $this->username, $this->password);
-        } catch (PDOException $e) {
-            echo $e->getMessage();
+        } catch (PDOException $exception) {
+            return $exception->getMessage();
         }
         return $conn;
     }
-
 }

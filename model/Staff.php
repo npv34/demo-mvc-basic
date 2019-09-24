@@ -1,6 +1,9 @@
 <?php
 
 
+namespace model;
+
+
 class Staff
 {
     private $id;
@@ -8,13 +11,15 @@ class Staff
     private $phone;
     private $address;
     private $email;
+    private $groupId;
 
-    public function __construct($name, $phone, $address, $email)
+    public function __construct($name, $phone, $address, $email, $groupId)
     {
         $this->name = $name;
         $this->phone = $phone;
         $this->address = $address;
         $this->email = $email;
+        $this->groupId = $groupId;
     }
 
     /**
@@ -28,9 +33,9 @@ class Staff
     /**
      * @return mixed
      */
-    public function getPhone()
+    public function getEmail()
     {
-        return $this->phone;
+        return $this->email;
     }
 
     /**
@@ -44,9 +49,17 @@ class Staff
     /**
      * @return mixed
      */
-    public function getEmail()
+    public function getPhone()
     {
-        return $this->email;
+        return $this->phone;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->id;
     }
 
     /**
@@ -56,4 +69,13 @@ class Staff
     {
         $this->id = $id;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getGroupId()
+    {
+        return $this->groupId;
+    }
+
 }
